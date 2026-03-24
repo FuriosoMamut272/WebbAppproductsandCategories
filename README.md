@@ -1,4 +1,3 @@
-````md
 # 🚀 Creating an MVC Web App using Entity Framework (Database First)
 
 **Author:** Mateo Isaza  
@@ -16,7 +15,9 @@ It includes:
 
 ---
 
-## 🗄️ Database Setup (SQL Server 2021)
+## Database Setup (SQL Server 2021)
+
+---
 
 Execute the following SQL script:
 
