@@ -8,16 +8,13 @@
 ## SQL Server 2021 Database Creation for SampleDb Database and tables Categories and Products
 
 CREATE DATABASE SampleDb;
-GO
 
 USE SampleDb;
-GO
 
 CREATE TABLE Categories(
 CategoryId INT IDENTITY(1,1) PRIMARY KEY,
 Name NVARCHAR(100) NOT NULL
 );
-GO
 
 CREATE TABLE Products(
 ProductId INT IDENTITY(1,1) PRIMARY KEY,
@@ -25,7 +22,6 @@ Name NVARCHAR(100) NOT NULL,
 Price DECIMAL(18,2) NOT NULL,
 CategoryId INT FOREIGN KEY REFERENCES Categories(CategoryId)
 );
-GO
 
 ## SQL Server 2021 installed packages with the Nuget Manager:
 
