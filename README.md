@@ -1,35 +1,71 @@
-# Web Application MVC Legacy
-## Developed using Visual Studio .NET 2022 and MS SQL Server 2021
-## Developer: Walter Hugo Arboleda Mazo
+🚀 Creating an MVC Web App using Entity Framework (Database First)
 
-## SQL Server 2021 Database SampleDb and tables Categories and Products
-<img width="477" height="262" alt="image" src="https://github.com/user-attachments/assets/f2f9049d-f30e-4f7d-b140-aa8edc8dfb52" />
+Author: Mateo Isaza
 
-## SQL Server 2021 Database Creation for SampleDb Database and tables Categories and Products
+📖 Overview
+
+This project demonstrates how to build an ASP.NET Core MVC application using the Database First approach with Entity Framework Core and SQL Server.
+
+It includes:
+
+Database creation
+Entity Framework configuration
+Scaffolding models and DbContext
+MVC structure (Controllers + Views)
+🗄️ Database Setup (SQL Server 2021)
+
+Execute the following SQL script:
 
 CREATE DATABASE SampleDb;
+GO
 
 USE SampleDb;
+GO
 
 CREATE TABLE Categories(
-CategoryId INT IDENTITY(1,1) PRIMARY KEY,
-Name NVARCHAR(100) NOT NULL
+    CategoryId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL
 );
+GO
 
 CREATE TABLE Products(
-ProductId INT IDENTITY(1,1) PRIMARY KEY,
-Name NVARCHAR(100) NOT NULL,
-Price DECIMAL(18,2) NOT NULL,
-CategoryId INT FOREIGN KEY REFERENCES Categories(CategoryId)
+    ProductId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Price DECIMAL(18,2) NOT NULL,
+    CategoryId INT FOREIGN KEY REFERENCES Categories(CategoryId)
 );
+GO
+📦 Required Packages
 
-## SQL Server 2021 installed packages with the Nuget Manager:
+Install via NuGet or Package Manager Console:
 
-Microsoft.Data.SqlClient
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Design
+Install-Package Microsoft.EntityFrameworkCore.Tools
+⚙️ Scaffolding (DbContext + Models)
 
-System.Data.SqlClient
+Run this command to generate your models and DbContext:
 
-Microsoft.AspNetCore.Mvc.TagHelpers
+Scaffold-DbContext "Server=DESKTOP-GJDFMRJ\SQLEXPRESS01;Database=SampleDb;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir Data -DataAnnotations -Force
+🧱 Project Structure
+📁 Project
+ ┣ 📁 Models        → Entity classes
+ ┣ 📁 Data          → DbContext
+ ┣ 📁 Controllers   → Business logic (CRUD)
+ ┣ 📁 Views         → User interface (MVC)
+🖥️ Features
+CRUD operations for Categories
+CRUD operations for Products
+Relationship handling (Products → Categories)
+Dynamic MVC views generated with scaffolding
+🛠️ Technologies
+ASP.NET Core MVC
+Entity Framework Core
+SQL Server 2021
+📌 Notes
+Uses Database First approach
+Make sure SQL Server is running before scaffolding
+Update the connection string according to your environment
+📷 Screenshots
 
-## References:
-https://www.youtube.com/watch?v=0tWLmvk86FA&list=PL5bLncqubD6soGTTcNv4YGlIha-b5gBfy
+Add your application images here (optional)
